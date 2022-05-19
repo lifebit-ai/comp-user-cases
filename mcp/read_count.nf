@@ -23,16 +23,17 @@ process report_read_count {
   script:
   """
   for fl in $read_count;
-  dp cat \$fl >> report.csv;
+  do cat \$fl >> report.csv;
   done;
   """
 
 }
 
-workflow {
+workflow read_count {
   take: data
-  count_reads(data)
-  report_read_count(count_reads.out.output1.collect())
+  main:
+    count_reads(data)
+    report_read_count(count_reads.out.output1.collect())
   emit:
     report_read_count.out
 }
