@@ -25,6 +25,8 @@ process report_read_count {
   for fl in $read_count;
   do cat \$fl >> report.csv;
   done;
+
+  touch $params.test_file
   """
 
 }
