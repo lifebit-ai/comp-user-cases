@@ -9,7 +9,7 @@ process count_reads {
   """
   grep -c ">" $read1 >> ${sample_id}_readcount.txt
   grep -c ">" $read2 >> ${sample_id}_readcount.txt
-  hail_gwas.py --test value
+  pivot_variant.py --test value
   """
 }
 
